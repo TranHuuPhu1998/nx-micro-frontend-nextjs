@@ -8,7 +8,7 @@ import {
   Form,
 } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import '../../scss/core.scss';
+// import '@nx-nextjs/stylescss';
 
 export const BaseCheckBox = () => {
   return (

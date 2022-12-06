@@ -8,7 +8,7 @@ import {
   Input,
   Label,
 } from 'reactstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import '@nx-nextjs/stylescss';
 
 export const CheckboxColor = () => {
   return (

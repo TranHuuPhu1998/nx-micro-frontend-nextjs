@@ -10,7 +10,7 @@ export function Index() {
         <div className="container">
           <div id="welcome">
             <h1>
-              <span> Hello there, </span>
+              <span> Hello there 3, </span>
               Welcome app-nextjs-v1 👋
             </h1>
           </div>

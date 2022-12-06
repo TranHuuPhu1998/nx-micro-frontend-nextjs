@@ -66,3 +66,4 @@ workflows:
               ordinal: [1, 2, 3]
       - main:
           name: Nx Cloud Main
+# VS Code Extension Version: 1.4.0

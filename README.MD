@@ -99,5 +99,27 @@ Visit [Nx Cloud](https://nx.app/) to learn more.
 
 ## CIRCLE CI
 
-- LOGIN
-- SETUP (https://app.circleci.com/projects/setup/)
+- DOC *https://circleci.com/docs/*
+- DOC CONFIG *https://circleci.com/docs/configuration-reference/#section=configuration*
+  <img src="https://circleci.com/docs/assets/img/docs/arch.png">
+- LOGIN OR REGISTER
+  *https://circleci.com/vcs-authorize/?return-to=https%3A%2F%2Fapp.circleci.com%2Fdashboard*
+- NX TOOL CIRCLE CI GENERATE
+- NX CIRCLE COMMAND
+  ```
+  yarn nx generate @nrwl/workspace:ci-workflow --ci=circleci --no-interactive --dry-run
+  ```
+- INSTALL VS EXTENSION
+- SETUP *https://app.circleci.com/projects/setup/*
+  <img src="https://media.graphassets.com/NbYUlX5NQHGY3hEqjnlv" class="object-top w-full object-cover shadow-lg rounded-t-lg lg:rounded-lg">
+- ORGANIZATION GITHUB :
+  *https://app.circleci.com/settings/organization/github/TranHuuPhu1998/security?return-to=https%3A%2F%2Fapp.circleci.com%2Fpipelines%2Fgithub%2FTranHuuPhu1998%2Fnx-micro-frontend-nextjs*
+  <img src="https://media.graphassets.com/FwML5dXXScekGnEHNvkQ">
+
+- DASH BOARD
+  *https://app.circleci.com/pipelines/github/TranHuuPhu1998/nx-micro-frontend-nextjs*
+- NOTIFICATION SLACK
+  *https://circleci.com/developer/orbs/orb/circleci/slack#quick-start*
+- EXAMPLE Javascript App - Vue.JS Front-End
+  *https://github.com/CircleCI-Public/sample-javascript-cfd/tree/1bb4bed9e982086a6018204d5fa4cc252a1a4cb4*
+- parallel - RUN COMMAND SONG SONG

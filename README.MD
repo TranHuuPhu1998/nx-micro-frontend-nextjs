@@ -45,6 +45,13 @@ Run `nx g @nrwl/react:lib my-lib` to generate a library.
 
 Libraries are sharable across libraries and applications. They can be imported from `@nx-nextjs/mylib`.
 
+## Generate a story book
+
+Run `nx generate @nrwl/react:component-story`
+Tool `@nrwl/react component-story`
+
+> Executing task: yarn nx generate @nrwl/react:component-story --componentPath=lib/table/table.tsx --project=ui --no-interactive <
+
 ## Development server
 
 Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.

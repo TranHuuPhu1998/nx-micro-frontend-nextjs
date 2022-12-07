@@ -30,8 +30,9 @@ const ButtonTemplate: ComponentStory<typeof BaseButton> = (args) => (
 );
 
 export const _ButtonGroup = ButtonGroupTemplate.bind({});
-export const _Button = ButtonTemplate.bind({});
-_Button.args = {
+export const _ButtonBasic = ButtonTemplate.bind({});
+
+_ButtonBasic.args = {
   color: 'secondary',
   text: 'Secondary',
   outline: false,

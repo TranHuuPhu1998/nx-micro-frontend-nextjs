@@ -1,7 +1,6 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import { CheckboxColor } from './checkbox-colors/checkbox-colors';
 import { BaseCheckBox } from './base-check-box/base-check-box';
-import '@nx-nextjs/styles';
 
 const Story: ComponentMeta<typeof CheckboxColor> = {
   component: CheckboxColor,
@@ -17,6 +16,6 @@ const BaseCheckBoxTemplate: ComponentStory<typeof BaseCheckBox> = () => (
 );
 
 export const _CheckBoxColor = CheckBoxColorTemplate.bind({});
-export const _CheckBoxBase = BaseCheckBoxTemplate.bind({});
+export const _CheckBoxBasic = BaseCheckBoxTemplate.bind({});
 
 export default Story;

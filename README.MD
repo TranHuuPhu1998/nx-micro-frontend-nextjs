@@ -6,6 +6,27 @@ This project was generated using [Nx](https://nx.dev).
 
 🔎 **Nx is a set of Extensible Dev Tools for Monorepos.**
 
+## Micro front end
+
+- Break the large code bases , source code into smalls component or smalls block
+
+## Micro front end history
+
+- The term Micro Frontends first came up in ThoughtWorks Technology Radar at the end of 2016
+
+## Monolithic Front ends
+
+<img src="https://micro-frontends.org/ressources/diagrams/organisational/monolith-frontback-microservices.png">
+
+## Micro Front ends
+
+<img src="https://micro-frontends.org/ressources/diagrams/organisational/verticals-headline.png
+">
+
+### Core Ideas behind Micro Frontends
+
+- Each team should be able to choose and upgrade their stack without having to coordinate with other teams
+
 ## Adding capabilities to your workspace
 
 Nx supports many plugins which add capabilities for developing different types of applications and different tools.
@@ -130,3 +151,8 @@ Visit [Nx Cloud](https://nx.app/) to learn more.
 - EXAMPLE Javascript App - Vue.JS Front-End
   *https://github.com/CircleCI-Public/sample-javascript-cfd/tree/1bb4bed9e982086a6018204d5fa4cc252a1a4cb4*
 - parallel - RUN COMMAND SONG SONG
+
+APP NEXTJS V1
+`https://apilayer.com/marketplace/exchangerates_data-api#authentication`
+
+`https://apilayer.com/marketplace/exchangerates_data-api`

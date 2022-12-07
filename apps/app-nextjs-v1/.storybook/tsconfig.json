@@ -21,12 +21,13 @@
     "../**/*.spec.jsx"
   ],
   "include": [
-    "../components/**/*.stories.ts",
-    "../components/**/*.stories.js",
-    "../components/**/*.stories.jsx",
-    "../components/**/*.stories.tsx",
-    "../components/**/*.stories.mdx",
+    "../features/**/*.stories.ts",
+    "../features/**/*.stories.js",
+    "../features/**/*.stories.jsx",
+    "../features/**/*.stories.tsx",
+    "../features/**/*.stories.mdx",
     "*.js",
+    "../features/**/*.tsx",
     "../../../.storybook/*.js"
   ]
 }

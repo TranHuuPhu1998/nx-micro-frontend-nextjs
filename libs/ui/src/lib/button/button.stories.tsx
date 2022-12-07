@@ -1,7 +1,7 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import { BaseButtonGroup } from './button-group/button-group';
 import { BaseButton } from './base-button/base-button';
-import '@nx-nextjs/styles';
+import '../../styles/scss/index.scss';
 
 const Story: ComponentMeta<typeof BaseButtonGroup> = {
   component: BaseButtonGroup,

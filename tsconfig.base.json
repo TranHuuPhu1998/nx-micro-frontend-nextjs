@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@nx-nextjs/styles": ["libs/styles/src/styles/scss/index.scss"],
       "@nx-nextjs/ui": ["libs/ui/src/index.ts"]
     }
   },

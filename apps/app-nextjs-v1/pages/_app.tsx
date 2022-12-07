@@ -1,5 +1,6 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
+import '@nx-nextjs/styles';
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (

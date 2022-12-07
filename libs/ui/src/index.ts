@@ -1,2 +1,2 @@
-export * from './lib/checkbox-colors/checkbox-colors';
-export * from './lib/base-check-box/base-check-box';
+export * from './lib/checkbox/checkbox-colors/checkbox-colors';
+export * from './lib/checkbox/base-check-box/base-check-box';

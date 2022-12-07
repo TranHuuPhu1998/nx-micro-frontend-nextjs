@@ -7,7 +7,6 @@ import {
   Label,
   Form,
 } from 'reactstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const BaseCheckBox = () => {
   return (

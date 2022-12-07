@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import Checkbox from './checkbox';
+import Buttongroup from './button-group';
 
-describe('Checkbox', () => {
+describe('Buttongroup', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<Checkbox />);
+    const { baseElement } = render(<Buttongroup />);
     expect(baseElement).toBeTruthy();
   });
 });

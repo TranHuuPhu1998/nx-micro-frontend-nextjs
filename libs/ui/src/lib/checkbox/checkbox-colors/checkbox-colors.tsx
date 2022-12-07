@@ -8,7 +8,6 @@ import {
   Input,
   Label,
 } from 'reactstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const CheckboxColor = () => {
   return (

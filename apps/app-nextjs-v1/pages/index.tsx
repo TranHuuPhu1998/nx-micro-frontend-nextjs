@@ -1,10 +1,11 @@
 import dynamic from 'next/dynamic';
 import { useState } from 'react';
-import { MyAccordion } from '../features/accordion';
+import { MyAccordion } from '../features';
 import { Card, CardHeader, Col, Row } from 'reactstrap';
+// dynamic import
 const DynamicReactJson = dynamic(import('react-json-view'), { ssr: false });
 
-export function MyNewPage() {
+function Home() {
   const [listSymbols, setListSymbols] = useState({});
 
   return (
@@ -20,13 +21,11 @@ export function MyNewPage() {
       <Col sm="6">
         <Card color="dark" inverse>
           <CardHeader tag="h3">Response ReactJson</CardHeader>
-          {listSymbols && (
-            <DynamicReactJson src={listSymbols || { a: 'a' }} theme="pop" />
-          )}
+          {listSymbols && <DynamicReactJson src={listSymbols} theme="pop" />}
         </Card>
       </Col>
     </Row>
   );
 }
 
-export default MyNewPage;
+export default Home;

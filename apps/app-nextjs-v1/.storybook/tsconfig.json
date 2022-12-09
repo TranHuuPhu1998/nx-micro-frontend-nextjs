@@ -18,7 +18,9 @@
     "../**/*.spec.ts",
     "../**/*.spec.js",
     "../**/*.spec.tsx",
-    "../**/*.spec.jsx"
+    "../**/*.spec.jsx",
+    "../**/*.ts",
+    "../**/*.tsx"
   ],
   "include": [
     "../features/**/*.stories.ts",

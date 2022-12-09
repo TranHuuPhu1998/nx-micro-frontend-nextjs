@@ -15,9 +15,11 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@nx-nextjs/api-services": ["libs/api-services/src/index.ts"],
       "@nx-nextjs/helper": ["libs/helper/src/index.ts"],
-      "@nx-nextjs/ui": ["libs/ui/src/index.ts"],
-      "@nx-nextjs/styles": ["libs/ui/src/styles/scss/index.scss"]
+      "@nx-nextjs/interfaces": ["libs/interfaces/src/index.ts"],
+      "@nx-nextjs/styles": ["libs/ui/src/styles/scss/index.scss"],
+      "@nx-nextjs/ui": ["libs/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

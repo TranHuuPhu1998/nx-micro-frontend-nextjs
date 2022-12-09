@@ -6,12 +6,13 @@ import {
 } from 'reactstrap';
 
 export interface AccordionItemProps {
-  onFetchAllData: () => void;
+  onFetchAllData?: () => void;
   targetId: string;
   children?: React.ReactNode;
   url: string;
   accordionId: string;
-  buttonText: string;
+  buttonText?: string;
+  open?: string;
 }
 
 export const BaseAccordionItem = (props: AccordionItemProps) => {
@@ -26,9 +27,11 @@ export const BaseAccordionItem = (props: AccordionItemProps) => {
       </AccordionHeader>
       <AccordionBody accordionId={accordionId}>
         {children}
-        <Button block onClick={onFetchAllData}>
-          {buttonText}
-        </Button>
+        {buttonText && (
+          <Button block onClick={onFetchAllData}>
+            {buttonText}
+          </Button>
+        )}
       </AccordionBody>
     </AccordionItem>
   );

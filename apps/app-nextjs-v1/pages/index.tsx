@@ -1,7 +1,8 @@
 import dynamic from 'next/dynamic';
 import { useState } from 'react';
-import { MyAccordion } from '../features';
+import { MyAccordion } from '@nx-app-v1/features';
 import { Card, CardHeader, Col, Row } from 'reactstrap';
+
 // dynamic import
 const DynamicReactJson = dynamic(import('react-json-view'), { ssr: false });
 

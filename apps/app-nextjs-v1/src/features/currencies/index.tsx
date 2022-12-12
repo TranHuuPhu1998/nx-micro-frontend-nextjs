@@ -1,21 +1,18 @@
-import { Accordion } from 'reactstrap';
-import { useHandleToggle } from '@nx-nextjs/api-services';
+import { UncontrolledAccordion } from 'reactstrap';
 import {
   ConvertCurrencies,
   CurrenciesListSymbols,
   CurrenciesLatest,
   CurrenciesFluctuation,
-} from '../../features';
+} from '@nx-app-v1/features';
 
 export const MyAccordion = ({ setListSymbols }) => {
-  const { open, toggle } = useHandleToggle();
-
   return (
-    <Accordion className="accordion-border" open={open} toggle={toggle}>
+    <UncontrolledAccordion defaultOpen="1">
       <CurrenciesListSymbols setListSymbols={setListSymbols} />
       <CurrenciesLatest setListSymbols={setListSymbols} />
       <CurrenciesFluctuation setListSymbols={setListSymbols} />
       <ConvertCurrencies setListSymbols={setListSymbols} />
-    </Accordion>
+    </UncontrolledAccordion>
   );
 };

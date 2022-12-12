@@ -1,7 +1,9 @@
 import { AppProps } from 'next/app';
-import '@nx-nextjs/styles';
 import { Toaster } from 'react-hot-toast';
 import Head from 'next/head';
+
+// import form common lib
+import '@nx-nextjs/styles';
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (

@@ -1,13 +1,10 @@
-import { async } from '@firebase/util';
-import { limitToLast, onValue, push, query, ref, set } from 'firebase/database';
-import { readTimeDB } from '../firebase';
+import { ITimeKeepingCollection } from '@nx-nextjs/interfaces';
+import { onValue, push, ref, set } from 'firebase/database';
+import { readTimeDB } from '../firebase-config';
 
 /**
  * @title             fire base real time create collection
  * @des               func create collection when user check in
- * @param title       title userId check in
- * @param createdAt   current date
- * @param userId      is user check In
  *
  * @returns            if success return data user check in
  */
@@ -33,19 +30,20 @@ export const FBRealTimeCreateTimekeeping = async () => {
     return error;
   }
 };
-interface ICollection {
-  key: string;
-  userId?: string;
-  title?: string;
-  createdAt?: Date;
-}
+
+/**
+ * @title             fire base real time get list collection
+ * @des               func get collection
+ *
+ * @returns           if success return list user check in or checkout
+ */
 
 export const FBReadTimeGetListTimekeeping = () => {
   try {
-    const recentPostsRef = ref(readTimeDB, '/users');
-    let response: ICollection[] = [];
+    const recentPostsRef = ref(readTimeDB, 'users');
+    let response: ITimeKeepingCollection[] = [];
     onValue(recentPostsRef, (snapshot) => {
-      const data: ICollection[] = [];
+      const data: ITimeKeepingCollection[] = [];
       snapshot.forEach((childSnapshot) => {
         const childKey = childSnapshot.key;
         const childData = childSnapshot.val();
@@ -59,7 +57,10 @@ export const FBReadTimeGetListTimekeeping = () => {
       response = data;
       return response;
     });
-
+    console.log(
+      '🚀 ~ file: realtime-keeping.services.ts:58 ~ onValue ~ response',
+      response
+    );
     return response;
   } catch (error) {
     console.error(error);

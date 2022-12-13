@@ -25,7 +25,7 @@
       "options": {
         "buildTarget": "app-nextjs-v2:build",
         "dev": true,
-        "port": 3000
+        "port": 3001
       },
       "configurations": {
         "development": {

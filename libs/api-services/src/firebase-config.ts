@@ -9,6 +9,7 @@ import { getFirestore } from 'firebase/firestore/lite';
 import { getStorage } from 'firebase/storage';
 import { getDatabase } from 'firebase/database';
 
+// get key from .env
 const firebaseConfig = {
   apiKey: `${process.env['NX_REACT_APP_FIREBASE_API_KEY']}`,
   authDomain: `${process.env['NX_REACT_APP_FIREBASE_AUTH_DOMAIN']}`,

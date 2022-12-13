@@ -1,1 +1,3 @@
-export * from './lib/currenciesInterface';
+export * from './lib/currencies.interface';
+export * from './lib/response-upload.interface';
+export * from './lib/timekeeping.interface';

@@ -1,10 +1,11 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
-import '@nx-nextjs/styles';
-import './styles.css';
 import React from 'react';
+import '@nx-nextjs/styles';
 
-// if (!process.browser) React.useLayoutEffect = React.useEffect;
+if (typeof document === 'undefined') {
+  React.useLayoutEffect = React.useEffect;
+}
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (

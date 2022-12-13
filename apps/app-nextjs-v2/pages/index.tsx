@@ -7,16 +7,18 @@ import {
   Button,
   ListGroup,
   ListGroupItem,
+  Input,
 } from 'reactstrap';
 import { useDropzone } from 'react-dropzone';
 import { FileText, X, DownloadCloud } from 'react-feather';
 import Image from 'next/image';
 import Link from 'next/link';
 import { handleUpLoadFile } from '@nx-nextjs/api-services';
+import { IResponseUpdateFile } from '@nx-nextjs/interfaces';
 
 function FileUploaderMultiple() {
   const [files, setFiles] = useState([]);
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<IResponseUpdateFile>();
 
   const { getRootProps, getInputProps } = useDropzone({
     onDrop: (acceptedFiles) => {
@@ -24,7 +26,7 @@ function FileUploaderMultiple() {
     },
   });
 
-  const renderFilePreview = (file) => {
+  const renderFilePreview = (file: File) => {
     if (file.type.startsWith('image')) {
       return (
         <Image
@@ -40,13 +42,13 @@ function FileUploaderMultiple() {
     }
   };
 
-  const handleRemoveFile = (file) => {
+  const handleRemoveFile = (file: File) => {
     const uploadedFiles = files;
     const filtered = uploadedFiles.filter((i) => i.name !== file.name);
     setFiles([...filtered]);
   };
 
-  const renderFileSize = (size) => {
+  const renderFileSize = (size: number) => {
     if (Math.round(size / 100) / 10 > 1000) {
       return `${(Math.round(size / 100) / 10000).toFixed(1)} mb`;
     } else {
@@ -85,18 +87,16 @@ function FileUploaderMultiple() {
   const handleUpdateFile = () => {
     const formData = new FormData();
     formData.append('file', files.at(0));
-    formData.append('api_key', '535677276293794');
-    formData.append('eager', 'c_pad,h_300,w_400|c_crop,h_200,w_260');
-    formData.append('folder', 'blod-dev');
-    formData.append('timestamp', `${new Date().getTime()}`);
+    formData.append('upload_preset', 'xenuumuo');
+    formData.append('cloud_name', 'ifv');
 
-    handleUpLoadFile(formData, setData);
+    handleUpLoadFile<IResponseUpdateFile>(formData, setData);
   };
 
   return (
-    <Card className="p-4">
+    <Card className="p-4" style={{ height: '100vh' }}>
       <CardHeader>
-        <CardTitle tag="h4">Multiple</CardTitle>
+        <CardTitle tag="h1">Public Image to Cloudinary</CardTitle>
       </CardHeader>
       <CardBody>
         <div {...getRootProps({ className: 'dropzone' })}>
@@ -135,6 +135,17 @@ function FileUploaderMultiple() {
             </div>
           </Fragment>
         ) : null}
+        <p>
+          {data?.original_filename}.{data?.format}
+        </p>
+        <div className="d-flex mt-2">
+          <Input id="secure_url" value={data?.secure_url} disabled />
+          <Button
+            onClick={() => navigator.clipboard.writeText(data?.secure_url)}
+          >
+            Copy
+          </Button>
+        </div>
       </CardBody>
     </Card>
   );

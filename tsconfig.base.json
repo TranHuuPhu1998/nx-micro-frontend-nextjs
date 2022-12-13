@@ -15,14 +15,17 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@nx-app-timekeeping/features": [
+        "apps/timekeeping/src/features/index.ts"
+      ],
+      "@nx-app-v1/features": ["apps/app-nextjs-v1/src/features/index.ts"],
+      "@nx-app-v2/features": ["apps/app-nextjs-v2/src/features/index.ts"],
       "@nx-nextjs/api-services": ["libs/api-services/src/index.ts"],
+      "@nx-nextjs/controller-service": ["libs/controller-service/src/index.ts"],
       "@nx-nextjs/helper": ["libs/helper/src/index.ts"],
       "@nx-nextjs/interfaces": ["libs/interfaces/src/index.ts"],
       "@nx-nextjs/styles": ["libs/ui/src/styles/scss/index.scss"],
-      "@nx-nextjs/ui": ["libs/ui/src/index.ts"],
-      "@nx-app-v1/features": ["apps/app-nextjs-v1/src/features/index.ts"],
-      "@nx-app-v2/features": ["apps/app-nextjs-v2/src/features/index.ts"],
-      "@nx-app-timekeeping/features": ["apps/timekeeping/src/features/index.ts"]
+      "@nx-nextjs/ui": ["libs/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

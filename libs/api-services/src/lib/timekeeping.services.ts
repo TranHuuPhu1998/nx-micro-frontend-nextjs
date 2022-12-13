@@ -6,16 +6,14 @@ import {
   getDocs,
   query,
 } from 'firebase/firestore/lite';
-import { db } from '../firebase';
+import { db } from '../firebase-config';
 import { signInWithPopup } from 'firebase/auth';
-import { auth, providerFacebook, providerGoogle } from '../firebase';
+import { auth, providerFacebook, providerGoogle } from '../firebase-config';
+import { ITimeKeepingGetCollection } from '@nx-nextjs/interfaces';
 
 /**
  * @title             file store
  * @des               func create collection when user check in
- * @param title       title userId check in
- * @param createdAt   current date
- * @param userId      is user check In
  *
  * @returns            if success return data user check in
  */
@@ -36,17 +34,16 @@ export const fileStoreCreateInfoCollection = async () => {
   }
 };
 
-interface ICollection {
-  id?: string;
-  uid?: string;
-  title?: string;
-  photos?: string[];
-  createdAt?: number;
-}
+/**
+ * @title             file store
+ * @des               func get collection when user auth
+ *
+ * @returns            if success return data user check in
+ */
 
 export const getInfoCollections = async () => {
   try {
-    const data: ICollection[] = [];
+    const data: ITimeKeepingGetCollection[] = [];
 
     const q = query(collection(db, 'collections'));
 
@@ -62,6 +59,14 @@ export const getInfoCollections = async () => {
   }
 };
 
+/**
+ * @title             file store
+ * @des               func get collection detail when user auth
+ * @param id          id for get details
+ *
+ * @returns           if success return data detail
+ */
+
 export const getCollection = async (id: string) => {
   try {
     const docRef = doc(db, `collections/${id}`);
@@ -74,6 +79,13 @@ export const getCollection = async (id: string) => {
   }
 };
 
+/**
+ * @title             file store
+ * @des               func login firebase with google
+ *
+ * @returns           if success return data user
+ */
+
 export const googleApi = async () => {
   try {
     const res = await signInWithPopup(auth, providerGoogle);
@@ -83,6 +95,13 @@ export const googleApi = async () => {
     return error;
   }
 };
+
+/**
+ * @title             file store
+ * @des               func facebook firebase with google
+ *
+ * @returns           if success return data user
+ */
 
 export const facebookApi = async () => {
   try {

@@ -1,2 +1,2 @@
 // app nextjs v1
-export * from './src/lib/currenciesInterface';
+export * from './src/index';

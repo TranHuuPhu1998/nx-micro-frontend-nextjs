@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { MyAccordion } from '@nx-app-v1/features';
 import { Card, CardHeader, Col, Row } from 'reactstrap';
 

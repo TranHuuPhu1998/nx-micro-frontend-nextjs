@@ -6,7 +6,7 @@ This project was generated using [Nx](https://nx.dev).
 
 🔎 **Nx is a set of Extensible Dev Tools for Monorepos.**
 
-## Micro front end
+## Monorepo
 
 - Break the large code bases , source code into smalls component or smalls block
 
@@ -156,3 +156,309 @@ APP NEXTJS V1
 `https://apilayer.com/marketplace/exchangerates_data-api#authentication`
 
 `https://apilayer.com/marketplace/exchangerates_data-api`
+
+- SLACK
+
+```
+app.message('random', async ({ message, say }) => {
+  // say() sends a message to the channel where the event was triggered
+  const arrayUser = message.text.split('\n');
+  arrayUser.splice(0, 1);
+
+  const colors = [...arrayUser];
+
+  // Shuffle the array
+  colors.sort(() => {
+    return Math.random() - 0.5;
+  });
+  console.log('🚀 ~ file: app.js:276 ~ app.message ~ colors', colors);
+  // Calculate the halfway point of the array
+  const halfwayPoint = Math.round(colors.length / 2);
+  console.log(
+    '🚀 ~ file: app.js:279 ~ app.message ~ halfwayPoint',
+    halfwayPoint
+  );
+
+  // Split the array at the halfway point
+  const group1 = colors.slice(0, halfwayPoint);
+  const group2 = colors.slice(halfwayPoint);
+
+  await say(`Hey there group2 <@${group2}>!`);
+
+  await say(`Hey there group1 <@${group1}>!`);
+});
+
+app.message('c-l', async ({ message, say }) => {
+  // say() sends a message to the channel where the event was triggered
+  const arrayUser = message.text.split('\n');
+  arrayUser.splice(0, 1);
+
+  const array = [...arrayUser];
+
+  function getRandomItem(array) {
+    const index = Math.floor(Math.random() * array.length);
+    return array[index];
+  }
+
+  const randomItem = getRandomItem(array);
+
+  await say(`Hey there group1 <@${randomItem}>!`);
+});
+
+app.message('hello', async ({ message, say }) => {
+  // say() sends a message to the channel where the event was triggered
+  app.client.chat.postMessage({
+    token: app.token,
+    channel: '#general',
+    blocks: [
+      {
+        type: 'section',
+        text: {
+          type: 'mrkdwn',
+          text: '*Today, 22 October*',
+        },
+        accessory: {
+          type: 'button',
+          text: {
+            type: 'plain_text',
+            text: 'Manage App Settings',
+            emoji: true,
+          },
+          value: 'settings',
+        },
+      },
+      {
+        type: 'actions',
+        elements: [
+          {
+            type: 'datepicker',
+            initial_date: '2019-10-22',
+            placeholder: {
+              type: 'plain_text',
+              text: 'Select a date',
+              emoji: true,
+            },
+          },
+        ],
+      },
+      {
+        type: 'divider',
+      },
+      {
+        type: 'section',
+        text: {
+          type: 'mrkdwn',
+          text: '*<fakelink.toUrl.com|Marketing weekly sync>*\n11:30am — 12:30pm  |  SF500 · 7F · Saturn (5)\nStatus: ✅ Going',
+        },
+        accessory: {
+          type: 'overflow',
+          options: [
+            {
+              text: {
+                type: 'plain_text',
+                text: 'View Event Details',
+                emoji: true,
+              },
+              value: 'view_event_details',
+            },
+            {
+              text: {
+                type: 'plain_text',
+                text: 'Change Response',
+                emoji: true,
+              },
+              value: 'change_response',
+            },
+          ],
+        },
+      },
+      {
+        type: 'actions',
+        elements: [
+          {
+            type: 'button',
+            text: {
+              type: 'plain_text',
+              text: 'Join Video Call',
+              emoji: true,
+            },
+            style: 'primary',
+            value: 'join',
+          },
+        ],
+      },
+      {
+        type: 'divider',
+      },
+      {
+        type: 'section',
+        text: {
+          type: 'mrkdwn',
+          text: '*<fakelink.toUrl.com|Design review w/ Platform leads>*\n1:30pm — 2:00pm  |  SF500 · 4F · Finch (4)',
+        },
+        accessory: {
+          type: 'overflow',
+          options: [
+            {
+              text: {
+                type: 'plain_text',
+                text: 'View Event Details',
+                emoji: true,
+              },
+              value: 'view_event_details',
+            },
+            {
+              text: {
+                type: 'plain_text',
+                text: 'Change Response',
+                emoji: true,
+              },
+              value: 'change_response',
+            },
+          ],
+        },
+      },
+      {
+        type: 'actions',
+        elements: [
+          {
+            type: 'static_select',
+            placeholder: {
+              type: 'plain_text',
+              text: 'Going?',
+              emoji: true,
+            },
+            options: [
+              {
+                text: {
+                  type: 'plain_text',
+                  text: 'Going',
+                  emoji: true,
+                },
+                value: 'going',
+              },
+              {
+                text: {
+                  type: 'plain_text',
+                  text: 'Maybe',
+                  emoji: true,
+                },
+                value: 'maybe',
+              },
+              {
+                text: {
+                  type: 'plain_text',
+                  text: 'Not going',
+                  emoji: true,
+                },
+                value: 'decline',
+              },
+            ],
+          },
+        ],
+      },
+      {
+        type: 'divider',
+      },
+      {
+        type: 'section',
+        text: {
+          type: 'mrkdwn',
+          text: '*<fakelink.toUrl.com|Presentation write-up>*\n4:00pm — 5:30pm  |  SF500 · 7F · Saturn (5)\nStatus: ✅ Going',
+        },
+        accessory: {
+          type: 'overflow',
+          options: [
+            {
+              text: {
+                type: 'plain_text',
+                text: 'View Event Details',
+                emoji: true,
+              },
+              value: 'view_event_details',
+            },
+            {
+              text: {
+                type: 'plain_text',
+                text: 'Change Response',
+                emoji: true,
+              },
+              value: 'change_response',
+            },
+          ],
+        },
+      },
+      {
+        type: 'actions',
+        elements: [
+          {
+            type: 'button',
+            text: {
+              type: 'plain_text',
+              text: 'Join Video Call',
+              emoji: true,
+            },
+            style: 'primary',
+            value: 'join',
+          },
+        ],
+      },
+      {
+        type: 'divider',
+      },
+      {
+        type: 'context',
+        elements: [
+          {
+            type: 'image',
+            image_url:
+              'https://api.slack.com/img/blocks/bkb_template_images/placeholder.png',
+            alt_text: 'placeholder',
+          },
+        ],
+      },
+      {
+        type: 'context',
+        elements: [
+          {
+            type: 'mrkdwn',
+            text: 'Past events',
+          },
+        ],
+      },
+      {
+        type: 'section',
+        text: {
+          type: 'mrkdwn',
+          text: '*Marketing team breakfast*\n8:30am — 9:30am  |  SF500 · 7F · Saturn (5)',
+        },
+      },
+      {
+        type: 'divider',
+      },
+      {
+        type: 'section',
+        text: {
+          type: 'mrkdwn',
+          text: '*Coffee chat w/ candidate*\n10:30am — 11:00am  |  SF500 · 10F · Cafe',
+        },
+      },
+    ],
+  });
+  // Listens to incoming messages that contain "hello"
+});
+
+app.action('button_click', async ({ body, ack, say }) => {
+  // Acknowledge the action
+  await ack();
+  await say(`<@${body.user.id}> clicked the button`);
+});
+
+//  invite channel to slack
+// app.client.conversations.invite({
+//   channel: 'C04F3P1P2V8',
+//   users: 'U04EX559U8N',
+// });
+
+
+```

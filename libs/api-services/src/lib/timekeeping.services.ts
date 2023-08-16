@@ -50,7 +50,10 @@ export const getInfoCollections = async () => {
     const querySnapshot = await getDocs(q);
 
     querySnapshot.forEach((doc) => {
-      data.push({ ...doc.data(), id: doc.id });
+      data.push({
+        ...doc.data(),
+        id: doc.id,
+      });
     });
 
     return data;
@@ -67,9 +70,9 @@ export const getInfoCollections = async () => {
  * @returns           if success return data detail
  */
 
-export const getCollection = async (id: string) => {
+export const getCollection = async (collectionId: string) => {
   try {
-    const docRef = doc(db, `collections/${id}`);
+    const docRef = doc(db, `collections/${collectionId}`);
 
     const docSnap = await getDoc(docRef);
 
@@ -77,6 +80,7 @@ export const getCollection = async (id: string) => {
   } catch (error) {
     return error;
   }
+  return null;
 };
 
 /**

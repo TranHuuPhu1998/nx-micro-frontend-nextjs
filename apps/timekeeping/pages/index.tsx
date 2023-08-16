@@ -1,115 +1,119 @@
-import { useEffect, useLayoutEffect, useState } from 'react';
-import { Button, Row } from 'reactstrap';
 import {
-  FBReadTimeGetListTimekeeping,
-  FBRealTimeCreateTimekeeping,
-} from '@nx-nextjs/api-services';
-import { Table } from 'reactstrap';
-import toast from 'react-hot-toast';
+  Button,
+  Card,
+  CardHeader,
+  CardBody,
+  FormGroup,
+  Form,
+  Input,
+  InputGroupText,
+  InputGroup,
+  Row,
+  Col,
+} from 'reactstrap';
 
-export function Index() {
-  const [isCheckIn, setIsCheckIn] = useState(false);
-  const [dataCheckInCheckOut, setDataCheckInCheckOut] = useState([]);
-  const [, setLoading] = useState<boolean>(false);
-  const [refetch, setRefetch] = useState<boolean>(false);
-
-  // get [192 XO VIET NGHE TINH] location
-  const geolocationPosition = {
-    latitude: 16.03225,
-    longitude: 108.2153,
-  };
-
-  const successCallback = async (position) => {
-    const { coords } = position;
-
-    const isLatitude = coords.latitude === geolocationPosition.latitude;
-    const isLongitude = coords.latitude === geolocationPosition.longitude;
-
-    if (isLatitude && isLongitude) {
-      setIsCheckIn(true);
-    } else {
-      setIsCheckIn(false);
-    }
-  };
-
-  const errorCallback = (error) => {
-    alert(error.message);
-    return;
-  };
-
-  useLayoutEffect(() => {
-    const options = {
-      enableHighAccuracy: true,
-    };
-
-    navigator.geolocation.getCurrentPosition(
-      successCallback,
-      errorCallback,
-      options
-    );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  const handleCheckInCheckOut = async () => {
-    try {
-      if (!isCheckIn) return;
-      const data = await FBRealTimeCreateTimekeeping();
-
-      if (data) {
-        toast.success('Check in success fully');
-      }
-      setRefetch((prev) => !prev);
-    } catch (error) {
-      console.error('error', error);
-      toast.success('Check in errors');
-    }
-  };
-
-  const fetchDataUserCollection = async () => {
-    const data = await FBReadTimeGetListTimekeeping();
-
-    setDataCheckInCheckOut(data);
-  };
-
-  useEffect(() => {
-    setLoading(true);
-    fetchDataUserCollection();
-    setLoading(false);
-  }, [refetch]);
-
+export default function Page() {
   return (
-    <div className="p-2">
-      <h1>
-        <span> Hello there, </span>
-        Welcome timekeeping 👋
-      </h1>
-      <Row className="mb-1" style={{ margin: '0px' }}>
-        <Button disabled={isCheckIn} onClick={handleCheckInCheckOut}>
-          Check In
-        </Button>
-      </Row>
-      <Table responsive>
-        <thead>
-          <tr>
-            <th>UserID</th>
-            <th>CreateAt</th>
-            <th>Title</th>
-          </tr>
-        </thead>
-        <tbody>
-          {dataCheckInCheckOut?.map((item, index) => {
-            return (
-              <tr key={index}>
-                <td>{item.key}</td>
-                <td>{item.createdAt}</td>
-                <td>{item.createdAt}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </Table>
+    <div>
+      heloo
+      <Col lg='5' md='7'>
+        <Card className='bg-secondary shadow border-0'>
+          <CardHeader className='bg-transparent pb-5'>
+            <div className='text-muted text-center mt-2 mb-3'>
+              <small>Sign in with</small>
+            </div>
+            <div className='btn-wrapper text-center'>
+              <Button
+                className='btn-neutral btn-icon'
+                color='default'
+                href='#pablo'
+                onClick={(e) => e.preventDefault()}
+              >
+                <span className='btn-inner--icon'></span>
+                <span className='btn-inner--text'>Github</span>
+              </Button>
+              <Button
+                className='btn-neutral btn-icon'
+                color='default'
+                href='#pablo'
+                onClick={(e) => e.preventDefault()}
+              >
+                <span className='btn-inner--icon'></span>
+                <span className='btn-inner--text'>Google</span>
+              </Button>
+            </div>
+          </CardHeader>
+          <CardBody className='px-lg-5 py-lg-5'>
+            <div className='text-center text-muted mb-4'>
+              <small>Or sign in with credentials</small>
+            </div>
+            <Form role='form'>
+              <FormGroup className='mb-3'>
+                <InputGroup className='input-group-alternative'>
+                  <InputGroupText>
+                    <i className='ni ni-email-83' />
+                  </InputGroupText>
+                  <Input
+                    placeholder='Email'
+                    type='email'
+                    autoComplete='new-email'
+                  />
+                </InputGroup>
+              </FormGroup>
+              <FormGroup>
+                <InputGroup className='input-group-alternative'>
+                  <InputGroupText>
+                    <i className='ni ni-lock-circle-open' />
+                  </InputGroupText>
+                  <Input
+                    placeholder='Password'
+                    type='password'
+                    autoComplete='new-password'
+                  />
+                </InputGroup>
+              </FormGroup>
+              <div className='custom-control custom-control-alternative custom-checkbox'>
+                <input
+                  className='custom-control-input'
+                  id=' customCheckLogin'
+                  type='checkbox'
+                />
+                <label
+                  className='custom-control-label'
+                  htmlFor=' customCheckLogin'
+                >
+                  <span className='text-muted'>Remember me</span>
+                </label>
+              </div>
+              <div className='text-center'>
+                <Button className='my-4' color='primary' type='button'>
+                  Sign in
+                </Button>
+              </div>
+            </Form>
+          </CardBody>
+        </Card>
+        <Row className='mt-3'>
+          <Col xs='6'>
+            <a
+              className='text-light'
+              href='#pablo'
+              onClick={(e) => e.preventDefault()}
+            >
+              <small>Forgot password?</small>
+            </a>
+          </Col>
+          <Col className='text-right' xs='6'>
+            <a
+              className='text-light'
+              href='#pablo'
+              onClick={(e) => e.preventDefault()}
+            >
+              <small>Create new account</small>
+            </a>
+          </Col>
+        </Row>
+      </Col>
     </div>
   );
 }
-
-export default Index;

@@ -14,8 +14,7 @@ import {
 
 export default function Page() {
   return (
-    <div>
-      heloo
+    <div className='d-flex justify-content-center align-items-center'>
       <Col lg='5' md='7'>
         <Card className='bg-secondary shadow border-0'>
           <CardHeader className='bg-transparent pb-5'>

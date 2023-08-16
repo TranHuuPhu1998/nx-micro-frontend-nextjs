@@ -2,6 +2,7 @@ import { AppProps } from 'next/app';
 import Head from 'next/head';
 import React from 'react';
 import '@nx-nextjs/styles';
+import './index.css';
 
 if (typeof document === 'undefined') {
   React.useLayoutEffect = React.useEffect;

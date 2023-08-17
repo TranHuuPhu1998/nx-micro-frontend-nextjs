@@ -464,3 +464,5 @@ app.action('button_click', async ({ body, ack, say }) => {
 ```
 
 https://github.com/yaseenmustapha/nextjs13-app/tree/main/app
+
+"react-json-view": "^1.21.3",

@@ -5,17 +5,13 @@ import {
   GoogleMapAutocompleteEventType,
 } from '@nx-nextjs/interfaces';
 
-export const getPositionMap = (
-  event: GoogleMapClickEventType | GoogleMapDragEventType
-): PositionType | null => {
+export const getPositionMap = (event: GoogleMapClickEventType | GoogleMapDragEventType): PositionType | null => {
   if (!event) return null;
   const { lat, lng } = event.latLng;
   return { lat: lat(), lng: lng() };
 };
 
-export const getPositionMapAutocomplete = (
-  event: GoogleMapAutocompleteEventType
-): PositionType => {
+export const getPositionMapAutocomplete = (event: GoogleMapAutocompleteEventType): PositionType => {
   const { lat, lng } = event.geometry.location;
   return { lat: lat(), lng: lng() };
 };
@@ -49,25 +45,20 @@ export const getCurrentPosition = () =>
     navigator.geolocation.getCurrentPosition(success, error, options);
   });
 
-export const getDistanceBetweenTwoPoints = (
-  cord1: Coordinate,
-  cord2: Coordinate
-) => {
+export const getDistanceBetweenTwoPoints = (cord1: Coordinate, cord2: Coordinate) => {
   // Have the same latitude and longitude coordinates return 0
   if (cord1.lat === cord2.lat && cord1.lng === cord2.lng) {
     return 0;
   }
   // Convert latitude to radians
-  const radlat1 = (Math.PI * cord1.lat) / 180;
-  const radlat2 = (Math.PI * cord2.lat) / 180;
+  const radiate1 = (Math.PI * cord1.lat) / 180;
+  const radiate2 = (Math.PI * cord2.lat) / 180;
 
   // Longitude distance
   const theta = cord1.lng - cord2.lng;
-  const radtheta = (Math.PI * theta) / 180;
+  const raytheon = (Math.PI * theta) / 180;
 
-  let dist =
-    Math.sin(radlat1) * Math.sin(radlat2) +
-    Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+  let dist = Math.sin(radiate1) * Math.sin(radiate2) + Math.cos(radiate1) * Math.cos(radiate2) * Math.cos(raytheon);
 
   if (dist > 1) {
     dist = 1;

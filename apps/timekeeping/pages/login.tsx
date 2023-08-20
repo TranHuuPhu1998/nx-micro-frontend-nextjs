@@ -11,6 +11,7 @@ import {
   Row,
   Col,
 } from 'reactstrap';
+import { GitHub, Slack, Mail, Lock } from 'react-feather';
 
 export default function Page() {
   return (
@@ -28,7 +29,9 @@ export default function Page() {
                 href='#pablo'
                 onClick={(e) => e.preventDefault()}
               >
-                <span className='btn-inner--icon'></span>
+                <span className='btn-inner--icon'>
+                  <GitHub size={18} />
+                </span>
                 <span className='btn-inner--text'>Github</span>
               </Button>
               <Button
@@ -37,8 +40,10 @@ export default function Page() {
                 href='#pablo'
                 onClick={(e) => e.preventDefault()}
               >
-                <span className='btn-inner--icon'></span>
-                <span className='btn-inner--text'>Google</span>
+                <span className='btn-inner--icon'>
+                  <Slack size={18} />
+                </span>
+                <span className='btn-inner--text'>Slack</span>
               </Button>
             </div>
           </CardHeader>
@@ -50,37 +55,22 @@ export default function Page() {
               <FormGroup className='mb-3'>
                 <InputGroup className='input-group-alternative'>
                   <InputGroupText>
-                    <i className='ni ni-email-83' />
+                    <Mail size={15} />
                   </InputGroupText>
-                  <Input
-                    placeholder='Email'
-                    type='email'
-                    autoComplete='new-email'
-                  />
+                  <Input placeholder='Email' type='email' autoComplete='new-email' />
                 </InputGroup>
               </FormGroup>
               <FormGroup>
                 <InputGroup className='input-group-alternative'>
                   <InputGroupText>
-                    <i className='ni ni-lock-circle-open' />
+                    <Lock size={15} />
                   </InputGroupText>
-                  <Input
-                    placeholder='Password'
-                    type='password'
-                    autoComplete='new-password'
-                  />
+                  <Input placeholder='Password' type='password' autoComplete='new-password' />
                 </InputGroup>
               </FormGroup>
               <div className='custom-control custom-control-alternative custom-checkbox'>
-                <input
-                  className='custom-control-input'
-                  id=' customCheckLogin'
-                  type='checkbox'
-                />
-                <label
-                  className='custom-control-label'
-                  htmlFor=' customCheckLogin'
-                >
+                <input className='custom-control-input' id=' customCheckLogin' type='checkbox' />
+                <label className='custom-control-label' htmlFor=' customCheckLogin'>
                   <span className='text-muted'>Remember me</span>
                 </label>
               </div>
@@ -94,20 +84,12 @@ export default function Page() {
         </Card>
         <Row className='mt-3'>
           <Col xs='6'>
-            <a
-              className='text-light'
-              href='#pablo'
-              onClick={(e) => e.preventDefault()}
-            >
+            <a className='text-light' href='#pablo' onClick={(e) => e.preventDefault()}>
               <small>Forgot password?</small>
             </a>
           </Col>
           <Col className='text-right' xs='6'>
-            <a
-              className='text-light'
-              href='#pablo'
-              onClick={(e) => e.preventDefault()}
-            >
+            <a className='text-light' href='#pablo' onClick={(e) => e.preventDefault()}>
               <small>Create new account</small>
             </a>
           </Col>

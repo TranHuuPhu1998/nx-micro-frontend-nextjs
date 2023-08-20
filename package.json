@@ -3,10 +3,12 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "run-slack": "cd apps/slack-api && node server.js",
-    "start-all": "yarn nx run-many --target=serve",
-    "build": "nx build",
-    "test": "nx test"
+    "run-many": "npx nx run-many --target=serve --all --maxParallel=100",
+    "build": "npx nx build",
+    "test": "npx nx test",
+    "reset": "npx nx reset",
+    "format-check": "npx nx format:check",
+    "format-write": "nx format:write"
   },
   "private": true,
   "dependencies": {
@@ -29,6 +31,7 @@
     "react-feather": "^2.0.10",
     "react-hook-form": "^7.40.0",
     "react-hot-toast": "^2.4.0",
+    "react-json-tree": "^0.18.0",
     "reactstrap": "^9.1.5",
     "regenerator-runtime": "0.13.7",
     "sass-loader": "^13.2.0",

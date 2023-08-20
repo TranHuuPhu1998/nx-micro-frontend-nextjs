@@ -1,14 +1,9 @@
 import { UncontrolledAccordion } from 'reactstrap';
-import {
-  ConvertCurrencies,
-  CurrenciesListSymbols,
-  CurrenciesLatest,
-  CurrenciesFluctuation,
-} from '@nx-app-v1/features';
+import { ConvertCurrencies, CurrenciesListSymbols, CurrenciesLatest, CurrenciesFluctuation } from '@app1-components';
 
-export const MyAccordion = ({ setListSymbols }) => {
+export const FEATURES_currencies = ({ setListSymbols }) => {
   return (
-    <UncontrolledAccordion defaultOpen="1">
+    <UncontrolledAccordion defaultOpen='1'>
       <CurrenciesListSymbols setListSymbols={setListSymbols} />
       <CurrenciesLatest setListSymbols={setListSymbols} />
       <CurrenciesFluctuation setListSymbols={setListSymbols} />

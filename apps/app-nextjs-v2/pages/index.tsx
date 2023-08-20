@@ -1,24 +1,31 @@
-import { useState, Fragment } from 'react';
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardBody,
-  Button,
-  ListGroup,
-  ListGroupItem,
-  Input,
-} from 'reactstrap';
+import { useState, Fragment, useEffect } from 'react';
+import { Card, CardHeader, CardTitle, CardBody, Button, ListGroup, ListGroupItem, Input } from 'reactstrap';
 import { useDropzone } from 'react-dropzone';
 import { FileText, X, DownloadCloud } from 'react-feather';
 import Image from 'next/image';
 import Link from 'next/link';
-import { handleUpLoadFile } from '@nx-nextjs/api-services';
+import {
+  SERVICES_cloudiness_upload,
+  SERVICES_resources_search,
+  SERVICES_sign_up_upload,
+} from '@nx-nextjs/api-services';
 import { IResponseUpdateFile } from '@nx-nextjs/interfaces';
 
 function FileUploaderMultiple() {
   const [files, setFiles] = useState([]);
   const [data, setData] = useState<IResponseUpdateFile>();
+  const [setDataList] = useState<any>();
+
+  useEffect(() => {
+    const params = {
+      expression: 'uploaded_at<730d AND resource_type:image AND bytes>5000000',
+      sort_by: [{ public_id: 'desc' }],
+    };
+    async function fetchData() {
+      await SERVICES_resources_search(params, setDataList);
+    }
+    fetchData();
+  }, [setDataList]);
 
   const { getRootProps, getInputProps } = useDropzone({
     onDrop: (acceptedFiles) => {
@@ -28,17 +35,9 @@ function FileUploaderMultiple() {
 
   const renderFilePreview = (file: File) => {
     if (file.type.startsWith('image')) {
-      return (
-        <Image
-          className="rounded"
-          alt={file.name}
-          src={URL.createObjectURL(file)}
-          height="28"
-          width="28"
-        />
-      );
+      return <Image className='rounded' alt={file.name} src={URL.createObjectURL(file)} height='28' width='28' />;
     } else {
-      return <FileText size="28" />;
+      return <FileText size='28' />;
     }
   };
 
@@ -57,24 +56,15 @@ function FileUploaderMultiple() {
   };
 
   const fileList = files.map((file, index) => (
-    <ListGroupItem
-      key={`${file.name}-${index}`}
-      className="d-flex align-items-center justify-content-between"
-    >
-      <div className="file-details d-flex align-items-center">
-        <div className="file-preview me-1">{renderFilePreview(file)}</div>
+    <ListGroupItem key={`${file.name}-${index}`} className='d-flex align-items-center justify-content-between'>
+      <div className='file-details d-flex align-items-center'>
+        <div className='file-preview me-1'>{renderFilePreview(file)}</div>
         <div>
-          <p className="file-name mb-0">{file.name}</p>
-          <p className="file-size mb-0">{renderFileSize(file.size)}</p>
+          <p className='file-name mb-0'>{file.name}</p>
+          <p className='file-size mb-0'>{renderFileSize(file.size)}</p>
         </div>
       </div>
-      <Button
-        color="danger"
-        outline
-        size="sm"
-        className="btn-icon"
-        onClick={() => handleRemoveFile(file)}
-      >
+      <Button color='danger' outline size='sm' className='btn-icon' onClick={() => handleRemoveFile(file)}>
         <X size={14} />
       </Button>
     </ListGroupItem>
@@ -84,33 +74,30 @@ function FileUploaderMultiple() {
     setFiles([]);
   };
 
-  const handleUpdateFile = () => {
+  const handleUpdateFile = async () => {
     const formData = new FormData();
     formData.append('file', files.at(0));
-    formData.append('upload_preset', 'xenuumuo');
-    formData.append('cloud_name', 'ifv');
+    formData.append('timestamp', '1692536598');
+    formData.append('api_key', process.env['NX_API_CLOUD_API_KEY']);
+    formData.append('signature', 'ed1722d92d2d01051c7682dd34fb1f896c09b275');
 
-    handleUpLoadFile<IResponseUpdateFile>(formData, setData);
+    SERVICES_cloudiness_upload<IResponseUpdateFile>(formData, setData);
   };
 
   return (
-    <Card className="p-4" style={{ height: '100vh' }}>
+    <Card className='p-4' style={{ height: '100vh' }}>
       <CardHeader>
-        <CardTitle tag="h1">Public Image to Cloudinary</CardTitle>
+        <CardTitle tag='h1'>Public Image to Cloudinary</CardTitle>
       </CardHeader>
       <CardBody>
         <div {...getRootProps({ className: 'dropzone' })}>
           <input {...getInputProps()} />
-          <div className="d-flex align-items-center justify-content-center flex-column">
+          <div className='d-flex align-items-center justify-content-center flex-column'>
             <DownloadCloud size={64} />
             <h5>Drop Files here or click to upload</h5>
-            <p className="text-secondary">
+            <p className='text-secondary'>
               Drop files here or click
-              <Link
-                className="p-1"
-                href="/"
-                onClick={(e) => e.preventDefault()}
-              >
+              <Link className='p-1' href='/' onClick={(e) => e.preventDefault()}>
                 browse
               </Link>
               thorough your machine
@@ -119,17 +106,12 @@ function FileUploaderMultiple() {
         </div>
         {files.length ? (
           <Fragment>
-            <ListGroup className="my-2">{fileList}</ListGroup>
-            <div className="d-flex justify-content-end">
-              <Button
-                className="me-1"
-                color="danger"
-                outline
-                onClick={handleRemoveAllFiles}
-              >
+            <ListGroup className='my-2'>{fileList}</ListGroup>
+            <div className='d-flex justify-content-end'>
+              <Button className='me-1' color='danger' outline onClick={handleRemoveAllFiles}>
                 Remove All
               </Button>
-              <Button onClick={handleUpdateFile} color="primary">
+              <Button onClick={handleUpdateFile} color='primary'>
                 Upload Files
               </Button>
             </div>
@@ -138,13 +120,9 @@ function FileUploaderMultiple() {
         <p>
           {data?.original_filename}.{data?.format}
         </p>
-        <div className="d-flex mt-2">
-          <Input id="secure_url" value={data?.secure_url} disabled />
-          <Button
-            onClick={() => navigator.clipboard.writeText(data?.secure_url)}
-          >
-            Copy
-          </Button>
+        <div className='d-flex mt-2'>
+          <Input id='secure_url' value={data?.secure_url} disabled />
+          <Button onClick={() => navigator.clipboard.writeText(data?.secure_url)}>Copy</Button>
         </div>
       </CardBody>
     </Card>

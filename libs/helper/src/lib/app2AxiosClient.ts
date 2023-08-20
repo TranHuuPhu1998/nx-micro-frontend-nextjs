@@ -1,17 +1,17 @@
 import axios from 'axios';
 
-export const axiosClient = axios.create({
+export const axiosCloudClient = axios.create({
   headers: {
-    'Content-Type': 'application/json',
+    'Content-Type': 'multipart/formdata'
   },
-  baseURL: process.env['NX_API_LAYER_URL'],
+  baseURL: process.env['NX_API_CLOUD_UPLOAD'],
   responseType: 'json',
 });
 
-axiosClient.interceptors.request.use(
+axiosCloudClient.interceptors.request.use(
   async (config) => {
     if (config.headers) {
-      config.headers['apikey'] = process.env['NX_API_KEY'];
+      config.headers['Authorization'] = `Basic NTM1Njc3Mjc2MjkzNzk0Ok1nZDhBbnEySG4zOWh2RUFKYkVjQWt0b212VQ==`;
     }
     return config;
   },
@@ -19,7 +19,7 @@ axiosClient.interceptors.request.use(
     return Promise.reject(error.response.data.errors[0].message);
   }
 );
-axiosClient.interceptors.response.use(
+axiosCloudClient.interceptors.response.use(
   async (response) => {
     return response;
   },

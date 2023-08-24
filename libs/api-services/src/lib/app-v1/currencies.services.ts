@@ -1,4 +1,4 @@
-import { axiosClient } from '@nx-nextjs/helper';
+import { axiosClient } from 'libs/shared-helper/src';
 import { IConvertCurrencies } from '@nx-nextjs/interfaces';
 import toast from 'react-hot-toast';
 

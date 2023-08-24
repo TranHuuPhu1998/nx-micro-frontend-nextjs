@@ -21,10 +21,12 @@
       "@nx-app-v2/features": ["apps/app-nextjs-v2/src/*"],
       "@nx-nextjs/api-services": ["libs/api-services/src/index.ts"],
       "@nx-nextjs/controller-service": ["libs/controller-service/src/index.ts"],
-      "@nx-nextjs/helper": ["libs/helper/src/index.ts"],
-      "@nx-nextjs/interfaces": ["libs/interfaces/src/index.ts"],
+      "@nx-nextjs/helper": ["libs/shared-helper/src/index.ts"],
+      "@nx-nextjs/interfaces": ["libs/shared-interfaces/src/index.ts"],
+      "@nx-nextjs/share-constant": ["libs/share-constant/src/index.ts"],
       "@nx-nextjs/styles": ["libs/shared-components/src/styles/scss/index.scss"],
-      "@nx-shared-components": ["libs/shared-components/src/index.ts"]
+      "@nx-shared-components": ["libs/shared-components/src/index.ts"],
+      "@nx-shared-constants": ["libs/shared-constants/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

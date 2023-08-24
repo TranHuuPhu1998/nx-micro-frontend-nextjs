@@ -1,4 +1,4 @@
-import { axiosCloudClient } from '@nx-nextjs/helper';
+import { axiosCloudClient } from 'libs/shared-helper/src';
 import toast from 'react-hot-toast';
 
 /**

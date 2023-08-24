@@ -3,7 +3,7 @@ import {
   GoogleMapDragEventType,
   PositionType,
   GoogleMapAutocompleteEventType,
-} from '@nx-nextjs/interfaces';
+} from 'libs/shared-interfaces/src';
 
 export const getPositionMap = (event: GoogleMapClickEventType | GoogleMapDragEventType): PositionType | null => {
   if (!event) return null;

@@ -71,12 +71,21 @@ Libraries are sharable across libraries and applications. They can be imported f
 Run `nx generate @nrwl/react:component-story`
 Tool `@nrwl/react component-story`
 
-> Executing task: yarn nx generate @nrwl/react:component-story --componentPath=lib/table/table.tsx --project=ui --no-interactive <
-> Executing task: yarn nx generate @nrwl/react:component-story --componentPath=lib/icon-button/icon-button.tsx --project=shared-components --no-interactive
+> `yarn nx generate @nrwl/react:component-story --componentPath=[path] --project=[project-name] --no-interactive`
 
-## Development server
+> `yarn nx generate @nrwl/react:component-story --componentPath=lib/icon-button/icon-button.tsx --project=shared-components --no-interactive`
+
+## RUN Development server
+
+`node -v` v14.21.2
+`npm i`
+`touch .env.example`
 
 Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+
+### RUN DEV APP PROJECT
+
+`npx nx serve run-many`
 
 ### RUN DEV APP app-nextjs-v2
 
@@ -97,13 +106,11 @@ Run `nx build my-app` to build the project. The build artifacts will be stored i
 ## Running unit tests
 
 Run `nx test my-app` to execute the unit tests via [Jest](https://jestjs.io).
-
 Run `nx affected:test` to execute the unit tests affected by a change.
 
 ## Running end-to-end tests
 
 Run `nx e2e my-app-e2e` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
-
 Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
 
 ## Understand your workspace
@@ -135,9 +142,7 @@ Visit [Nx Cloud](https://nx.app/) to learn more.
   *https://circleci.com/vcs-authorize/?return-to=https%3A%2F%2Fapp.circleci.com%2Fdashboard*
 - NX TOOL CIRCLE CI GENERATE
 - NX CIRCLE COMMAND
-  ```
-  yarn nx generate @nrwl/workspace:ci-workflow --ci=circleci --no-interactive --dry-run
-  ```
+  `yarn nx generate @nrwl/workspace:ci-workflow --ci=circleci --no-interactive --dry-run`
 - INSTALL VS EXTENSION
 - SETUP *https://app.circleci.com/projects/setup/*
   <img src="https://media.graphassets.com/NbYUlX5NQHGY3hEqjnlv" class="object-top w-full object-cover shadow-lg rounded-t-lg lg:rounded-lg">
@@ -151,8 +156,7 @@ Visit [Nx Cloud](https://nx.app/) to learn more.
   *https://circleci.com/developer/orbs/orb/circleci/slack#quick-start*
 - EXAMPLE Javascript App - Vue.JS Front-End
   *https://github.com/CircleCI-Public/sample-javascript-cfd/tree/1bb4bed9e982086a6018204d5fa4cc252a1a4cb4*
-- parallel - RUN COMMAND SONG SONG
-
-APP NEXTJS V1
-`https://apilayer.com/marketplace/exchangerates_data-api#authentication`
-`https://apilayer.com/marketplace/exchangerates_data-api`
+- Parallel - RUN COMMAND SONG SONG
+- API
+  `https://apilayer.com/marketplace/exchangerates_data-api#authentication`
+  `https://apilayer.com/marketplace/exchangerates_data-api`

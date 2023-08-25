@@ -4,17 +4,13 @@ import { useDropzone } from 'react-dropzone';
 import { FileText, X, DownloadCloud } from 'react-feather';
 import Image from 'next/image';
 import Link from 'next/link';
-import {
-  SERVICES_cloudiness_upload,
-  SERVICES_resources_search,
-  SERVICES_sign_up_upload,
-} from '@nx-nextjs/api-services';
+import { SERVICES_cloudiness_upload, SERVICES_resources_search } from '@nx-nextjs/api-services';
 import { IResponseUpdateFile } from '@nx-nextjs/interfaces';
 
 function FileUploaderMultiple() {
   const [files, setFiles] = useState([]);
   const [data, setData] = useState<IResponseUpdateFile>();
-  const [setDataList] = useState<any>();
+  const [setDataList] = useState();
 
   useEffect(() => {
     const params = {

@@ -36,25 +36,19 @@ jobs:
           node-version: '18.12.0'
       - name: Install ESLint
         run: |
-          yarn
-        # yarn add eslint
+          npm i
+          npm i eslint
         # yarn add @microsoft/eslint-formatter-sarif
 
       - name: Run ESLint
         run: |
-          yarn lint
+          npx nx run app-nextjs-v2:lint
         # run: npx eslint .
         #   --config .eslintrc
         #   --ext .js,.jsx,.ts,.tsx
         #   --format @microsoft/eslint-formatter-sarif
         #   --output-file eslint-results.sarif
         continue-on-error: true
-
-      - name: Upload analysis results to GitHub
-        uses: github/codeql-action/upload-sarif@v2
-        with:
-          sarif_file: eslint-results.sarif
-          wait-for-processing: true
 
   super-linter:
     # Name the Job
@@ -82,18 +76,5 @@ jobs:
       - name: Lint Code
         uses: github/super-linter@v4
         env:
-          VALIDATE_ALL_CODEBASE: false
           DEFAULT_BRANCH: develop
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          VALIDATE_MARKDOWN: false
-          VALIDATE_NATURAL_LANGUAGE: false
-          VALIDATE_TYPESCRIPT_STANDARD: false
-          VALIDATE_TYPESCRIPT_ES: false
-          VALIDATE_JAVASCRIPT_STANDARD: false
-          VALIDATE_JAVASCRIPT_ES: false
-          VALIDATE_XML: false
-          VALIDATE_GROOVY: false
-          VALIDATE_RUST_CLIPPY: false
-          VALIDATE_GOOGLE_JAVA_FORMAT: false
-          VALIDATE_SHELL_SHFMT: false
-          VALIDATE_DOCKERFILE_HADOLINT: false

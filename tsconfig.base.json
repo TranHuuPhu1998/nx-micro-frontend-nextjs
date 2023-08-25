@@ -15,8 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@app1-components": ["apps/app-nextjs-v1/src/components/index.ts"],
-      "@app1-features": ["apps/app-nextjs-v1/src/features/index.ts"],
+      "@nx/app-components": ["apps/app-nextjs-v1/src/components/index.ts"],
+      "@nx/app-features": ["apps/app-nextjs-v1/src/features/index.ts"],
       "@nx-app-timekeeping/features": ["apps/timekeeping/src/features/index.ts"],
       "@nx-app-v2/features": ["apps/app-nextjs-v2/src/*"],
       "@nx-nextjs/api-services": ["libs/api-services/src/index.ts"],
@@ -29,5 +29,13 @@
       "@nx-shared-constants": ["libs/shared-constants/src/index.ts"]
     }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [
+    "node_modules",
+    "tmp",
+    "apps/**/cypress.config.ts",
+    "apps/**/cypress.config.ts",
+    "apps/app-nextjs-v1/.storybook/main.js",
+    "apps/app-nextjs-v1/.storybook/preview.js",
+    "apps/app-nextjs-v1/.storybook/tsconfig.json"
+  ]
 }

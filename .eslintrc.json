@@ -2,6 +2,9 @@
   "root": true,
   "ignorePatterns": ["**/*"],
   "plugins": ["@nrwl/nx"],
+  "parserOptions": {
+    "project": "./tsconfig.base.json" // Update this path
+  },
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],

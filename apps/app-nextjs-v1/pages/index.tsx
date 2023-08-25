@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FEATURES_currencies } from '@app1-features';
+import { FEATURES_currencies } from '../src/features';
 import { Card, CardHeader, Col, Row } from 'reactstrap';
 import { JSONTree } from 'react-json-tree';
 

@@ -1,1 +1,1 @@
-export * from './currencies/index';
+export * from './currencies';

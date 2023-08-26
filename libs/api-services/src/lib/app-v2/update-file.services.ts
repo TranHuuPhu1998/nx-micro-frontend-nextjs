@@ -22,13 +22,19 @@ export const SERVICES_cloudiness_upload = async <TData>(
     toast.success('Failed');
   }
 };
+
+interface IParams {
+  expression: string;
+  sort_by: {
+    public_id: string;
+  }[]
+}
 export const SERVICES_resources_search = async <TData>(
-  params: any,
+  params: IParams,
   callBack: (payload: TData) => void
 ) => {
   try {
     const { data } = await axiosCloudClient.get('/v1_1/ifv/resources/search', params);
-    console.log("🚀 ~ file: update-file.services.ts:19 ~ data:", data)
     callBack(data)
     toast.success('Upload successfully');
   } catch {

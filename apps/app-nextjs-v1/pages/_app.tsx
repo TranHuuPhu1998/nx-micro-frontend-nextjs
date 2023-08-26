@@ -3,7 +3,7 @@ import { Toaster } from 'react-hot-toast';
 import Head from 'next/head';
 
 // import form common lib
-import '@nx-nextjs/styles';
+import '@nx-shared-styles';
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
@@ -11,12 +11,9 @@ function CustomApp({ Component, pageProps }: AppProps) {
       <Head>
         <title>APP Exchange Rates Data API</title>
       </Head>
-      <main className="app">
+      <main className='app'>
         <Component {...pageProps} />
-        <Toaster
-          position="top-center"
-          toastOptions={{ className: 'react-hot-toast' }}
-        />
+        <Toaster position='top-center' toastOptions={{ className: 'react-hot-toast' }} />
       </main>
     </>
   );

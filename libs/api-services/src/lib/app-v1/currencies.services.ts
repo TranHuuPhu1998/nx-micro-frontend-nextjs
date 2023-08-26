@@ -1,5 +1,5 @@
-import { axiosClient } from 'libs/shared-helper/src';
-import { IConvertCurrencies } from '@nx-nextjs/interfaces';
+import { axiosClient } from '@nx-shared-helper';
+import { IConvertCurrencies } from '@nx-shared-interfaces';
 import toast from 'react-hot-toast';
 
 export const SERVICES_symbols = async <TData>(callBack: (data: TData) => void) => {

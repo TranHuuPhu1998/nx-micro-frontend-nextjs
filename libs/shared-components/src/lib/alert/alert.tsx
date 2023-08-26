@@ -1,6 +1,6 @@
 // https://github.dev/apitable/apitable
 import { WarningTriangleNonzeroFilled, CloseMiddleOutlined } from '@apitable/icons';
-import { Box, IconButton } from '@nx-shared-components';
+import { Box, IconButton } from '../../index';
 import { textBrandDefault, textDangerDefault, textWarnDefault, textSuccessDefault } from '@nx-shared-constants';
 import React, { useState } from 'react';
 import { IAlertProps } from './interface';

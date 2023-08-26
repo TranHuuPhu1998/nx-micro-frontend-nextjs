@@ -3,7 +3,7 @@ import {
   GoogleMapDragEventType,
   PositionType,
   GoogleMapAutocompleteEventType,
-} from 'libs/shared-interfaces/src';
+} from '@nx-shared-interfaces';
 
 export const getPositionMap = (event: GoogleMapClickEventType | GoogleMapDragEventType): PositionType | null => {
   if (!event) return null;
@@ -29,6 +29,7 @@ const options = {
 
 export const getCurrentPosition = () =>
   new Promise((resolve, reject) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const success = (pos: any) => {
       const crd = pos.coords;
       const position = {

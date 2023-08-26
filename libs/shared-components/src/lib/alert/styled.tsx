@@ -2,7 +2,7 @@ import Color from 'color';
 import styled, { css } from 'styled-components';
 import { IAlertWrapper } from './interface';
 import { primaryColor, errorColor, warningColor, successColor } from '@nx-shared-constants';
-import { rgba2hex } from '@nx-nextjs/helper';
+import { rgba2hex } from '@nx-shared-helper';
 
 export const AlertWrapper = styled.div<IAlertWrapper>`
   display: flex;

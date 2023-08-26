@@ -1,6 +1,6 @@
 import { BaseAccordionItem } from '@nx-shared-components';
 import { SERVICES_symbols } from '@nx-nextjs/api-services';
-import { ICurrenciesFeature, ISymbols } from '@nx-nextjs/interfaces';
+import { ICurrenciesFeature, ISymbols } from '@nx-shared-interfaces';
 
 export const CurrenciesListSymbols = ({ setListSymbols }) => {
   return (

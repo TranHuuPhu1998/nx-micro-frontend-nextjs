@@ -1,5 +1,5 @@
 import { UncontrolledAccordion } from 'reactstrap';
-import { ConvertCurrencies, CurrenciesListSymbols, CurrenciesLatest, CurrenciesFluctuation } from '@app1-components';
+import { ConvertCurrencies, CurrenciesListSymbols, CurrenciesLatest, CurrenciesFluctuation } from '../components';
 
 export const FEATURES_currencies = ({ setListSymbols }) => {
   return (

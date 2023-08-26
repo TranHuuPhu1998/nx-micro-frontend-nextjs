@@ -2,7 +2,7 @@ import { addDoc, collection, doc, getDoc, getDocs, query } from 'firebase/firest
 import { db } from '../config/firebase-config';
 import { signInWithPopup } from 'firebase/auth';
 import { auth, providerFacebook, providerGoogle } from '../config/firebase-config';
-import { ITimeKeepingGetCollection } from '@nx-nextjs/interfaces';
+import { ITimeKeepingGetCollection } from '@nx-shared-interfaces';
 
 /**
  * @title             file store

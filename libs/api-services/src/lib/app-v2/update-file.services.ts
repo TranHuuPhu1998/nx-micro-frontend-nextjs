@@ -1,6 +1,6 @@
 import { axiosCloudClient } from '@nx-nextjs/helper';
 import { AxiosRequestConfig } from 'axios';
-import { IParams } from '@nx-nextjs/interfaces'
+import { IParams } from '@nx-nextjs/interfaces';
 import toast from 'react-hot-toast';
 
 /**
@@ -18,13 +18,12 @@ export const SERVICES_cloudiness_upload = async <TData>(
 ) => {
   try {
     const { data } = await axiosCloudClient.post('/v1_1/ifv/image/upload', formData);
-    callBack(data)
+    callBack(data);
     toast.success('Upload successfully');
   } catch {
     toast.success('Failed');
   }
 };
-
 
 export const SERVICES_resources_search = async <TData>(
   params: AxiosRequestConfig<IParams>,
@@ -32,20 +31,17 @@ export const SERVICES_resources_search = async <TData>(
 ) => {
   try {
     const { data } = await axiosCloudClient.get('/v1_1/ifv/resources/search', params);
-    callBack(data)
+    callBack(data);
     toast.success('Upload successfully');
   } catch {
     toast.success('Failed');
   }
 };
 
-
-export const SERVICES_sign_up_upload = async <TData>(
-  callBack: (payload: TData) => void
-) => {
+export const SERVICES_sign_up_upload = async <TData>(callBack: (payload: TData) => void) => {
   try {
     const { data } = await axiosCloudClient.get('/api/signuploadform');
-    callBack(data)
+    callBack(data);
     toast.success('Upload successfully');
   } catch {
     toast.success('Failed');

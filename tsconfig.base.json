@@ -17,14 +17,10 @@
     "paths": {
       "@nx/app-components": ["apps/app-nextjs-v1/src/components/index.ts"],
       "@nx/app-features": ["apps/app-nextjs-v1/src/features/index.ts"],
-      "@nx-app-timekeeping/features": ["apps/timekeeping/src/features/index.ts"],
-      "@nx-app-v2/features": ["apps/app-nextjs-v2/src/*"],
       "@nx-nextjs/api-services": ["libs/api-services/src/index.ts"],
-      "@nx-nextjs/controller-service": ["libs/controller-service/src/index.ts"],
-      "@nx-nextjs/helper": ["libs/shared-helper/src/index.ts"],
-      "@nx-nextjs/interfaces": ["libs/shared-interfaces/src/index.ts"],
-      "@nx-nextjs/share-constant": ["libs/share-constant/src/index.ts"],
-      "@nx-nextjs/styles": ["libs/shared-components/src/styles/scss/index.scss"],
+      "@nx-shared-helper": ["libs/shared-helper/src/index.ts"],
+      "@nx-shared-interfaces": ["libs/shared-interfaces/src/index.ts"],
+      "@nx-shared-styles": ["libs/shared-components/src/styles/scss/index.scss"],
       "@nx-shared-components": ["libs/shared-components/src/index.ts"],
       "@nx-shared-constants": ["libs/shared-constants/src/index.ts"]
     }

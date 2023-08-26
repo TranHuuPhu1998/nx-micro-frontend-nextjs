@@ -1,6 +1,6 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
-import '@nx-nextjs/styles';
+import '@nx-shared-styles';
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
@@ -8,7 +8,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
       <Head>
         <title>API — Freeimage.host</title>
       </Head>
-      <main className="app">
+      <main className='app'>
         <Component {...pageProps} />
       </main>
     </>

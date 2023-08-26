@@ -1,6 +1,6 @@
 import { BaseAccordionItem } from '@nx-shared-components';
 import { SERVICES_latest } from '@nx-nextjs/api-services';
-import { ICurrenciesFeature, IConvertCurrencies } from '@nx-nextjs/interfaces';
+import { ICurrenciesFeature, IConvertCurrencies } from '@nx-shared-interfaces';
 import { Row, Col, Label, Input, Button, InputGroup, Form, InputGroupText } from 'reactstrap';
 import { Mail, User } from 'react-feather';
 import { Controller, useForm } from 'react-hook-form';

@@ -3,7 +3,7 @@ import { Row, Col, Label, Input, Button, InputGroup, Form, InputGroupText } from
 import { Lock, Mail, Smartphone, User } from 'react-feather';
 import { Controller, useForm } from 'react-hook-form';
 import { SERVICES_convert } from '@nx-nextjs/api-services';
-import { IConvertCurrencies, ICurrenciesFeature } from '@nx-nextjs/interfaces';
+import { IConvertCurrencies, ICurrenciesFeature } from '@nx-shared-interfaces';
 
 export const ConvertCurrencies = ({ setListSymbols }) => {
   const { control, handleSubmit } = useForm();

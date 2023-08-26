@@ -4,7 +4,5 @@ export interface IParams {
 }
 
 export interface ISortBy {
-  sort_by: {
-    public_id: string;
-  };
+  public_id: string;
 }

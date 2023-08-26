@@ -1,4 +1,6 @@
 import { axiosCloudClient } from '@nx-nextjs/helper';
+import { AxiosRequestConfig } from 'axios';
+import { IParams } from '@nx-nextjs/interfaces'
 import toast from 'react-hot-toast';
 
 /**
@@ -23,14 +25,9 @@ export const SERVICES_cloudiness_upload = async <TData>(
   }
 };
 
-interface IParams {
-  expression: string;
-  sort_by: {
-    public_id: string;
-  }[]
-}
+
 export const SERVICES_resources_search = async <TData>(
-  params: IParams,
+  params: AxiosRequestConfig<IParams>,
   callBack: (payload: TData) => void
 ) => {
   try {

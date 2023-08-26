@@ -29,13 +29,5 @@
       "@nx-shared-constants": ["libs/shared-constants/src/index.ts"]
     }
   },
-  "exclude": [
-    "node_modules",
-    "tmp",
-    "apps/**/cypress.config.ts",
-    "apps/**/cypress.config.ts",
-    "apps/app-nextjs-v1/.storybook/main.js",
-    "apps/app-nextjs-v1/.storybook/preview.js",
-    "apps/app-nextjs-v1/.storybook/tsconfig.json"
-  ]
+  "exclude": ["node_modules", "tmp", "apps/**/cypress.config.ts"]
 }

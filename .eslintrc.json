@@ -1,9 +1,14 @@
 {
   "root": true,
-  "ignorePatterns": ["**/*"],
+  "ignorePatterns": ["**/*", "/apps/app-nextjs-v1/.storybook/main.js"],
   "plugins": ["@nrwl/nx"],
   "parserOptions": {
-    "project": "./tsconfig.base.json" // Update this path
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module",
+    "tsconfigRootDir": "__dirname"
   },
   "overrides": [
     {

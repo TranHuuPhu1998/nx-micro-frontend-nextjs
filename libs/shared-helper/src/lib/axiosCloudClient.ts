@@ -2,9 +2,9 @@ import axios from 'axios';
 
 export const axiosCloudClient = axios.create({
   headers: {
-    'Content-Type': 'multipart/formdata'
+    'Content-Type': 'multipart/formdata',
   },
-  baseURL: process.env['NX_API_CLOUD_UPLOAD'],
+  baseURL: process.env['NEXT_PUBLIC_API_CLOUD_UPLOAD'],
   responseType: 'json',
 });
 

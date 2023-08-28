@@ -76,7 +76,7 @@ function FileUploaderMultiple() {
     const formData = new FormData();
     formData.append('file', files.at(0));
     formData.append('timestamp', '1692536598');
-    formData.append('api_key', process.env['NX_API_CLOUD_API_KEY']);
+    formData.append('api_key', process.env['NEXT_PUBLIC_API_CLOUD_API_KEY']);
     formData.append('signature', 'ed1722d92d2d01051c7682dd34fb1f896c09b275');
 
     SERVICES_cloudiness_upload<IResponseUpdateFile>(formData, setData);

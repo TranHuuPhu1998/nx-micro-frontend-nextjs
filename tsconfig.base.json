@@ -15,14 +15,15 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nx/app-components": ["apps/app-nextjs-v1/src/components/index.ts"],
-      "@nx/app-features": ["apps/app-nextjs-v1/src/features/index.ts"],
       "@nx-nextjs/api-services": ["libs/api-services/src/index.ts"],
+      "@nx-nextjs/shared-modules": ["libs/shared-modules/src/index.ts"],
+      "@nx-shared-components": ["libs/shared-components/src/index.ts"],
+      "@nx-shared-constants": ["libs/shared-constants/src/index.ts"],
       "@nx-shared-helper": ["libs/shared-helper/src/index.ts"],
       "@nx-shared-interfaces": ["libs/shared-interfaces/src/index.ts"],
       "@nx-shared-styles": ["libs/shared-components/src/styles/scss/index.scss"],
-      "@nx-shared-components": ["libs/shared-components/src/index.ts"],
-      "@nx-shared-constants": ["libs/shared-constants/src/index.ts"]
+      "@nx/app-components": ["apps/app-nextjs-v1/src/components/index.ts"],
+      "@nx/app-features": ["apps/app-nextjs-v1/src/features/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp", "apps/**/cypress.config.ts"]

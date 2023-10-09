@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 
 export const SERVICES_symbols = async <TData>(callBack: (data: TData) => void) => {
   try {
-    const { data } = await axiosClient.get('/symbols');
+    const { data } = await axiosClient.get('/exchangerates_data/symbols');
     callBack(data);
     toast.success('Returns all available currencies.');
   } catch {
@@ -15,7 +15,7 @@ export const SERVICES_symbols = async <TData>(callBack: (data: TData) => void) =
 export const SERVICES_convert = async <TData>(value: IConvertCurrencies, callBack: (data: TData) => void) => {
   const params = value;
   try {
-    const { data } = await axiosClient.get('/convert', { params });
+    const { data } = await axiosClient.get('exchangerates_data/convert', { params });
     callBack(data);
     toast.success('With this endpoint, we have any amount conversion from one currency to another.');
   } catch {
@@ -26,7 +26,7 @@ export const SERVICES_convert = async <TData>(value: IConvertCurrencies, callBac
 export const SERVICES_latest = async <TData>(value: IConvertCurrencies, callBack: (data: TData) => void) => {
   const params = value;
   try {
-    const { data } = await axiosClient.get('/latest', { params });
+    const { data } = await axiosClient.get('exchangerates_data/latest', { params });
     callBack(data);
     toast.success('Returns exchange rate data in real-time for all available currencies or for a specific set.');
   } catch {
@@ -36,7 +36,7 @@ export const SERVICES_latest = async <TData>(value: IConvertCurrencies, callBack
 export const SERVICES_fluctuation = async <TData>(callBack: (data: TData) => void) => {
   // const params = value;
   try {
-    const { data } = await axiosClient.get('/fluctuation');
+    const { data } = await axiosClient.get('exchangerates_data/fluctuation');
     callBack(data);
     toast.success('Returns exchange rate data in real-time for all available currencies or for a specific set.');
   } catch {

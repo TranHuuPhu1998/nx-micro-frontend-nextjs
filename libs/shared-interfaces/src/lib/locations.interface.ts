@@ -1,12 +1,12 @@
 export interface PositionType {
-  lat?: any;
-  lng?: any;
+  lat?: string;
+  lng?: string;
   address?: string;
 }
 
 export interface LatLngType {
-  lat: () => any;
-  lng: () => any;
+  lat: () => string;
+  lng: () => string;
 }
 
 export interface GoogleMapEventType {

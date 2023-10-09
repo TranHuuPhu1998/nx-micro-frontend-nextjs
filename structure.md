@@ -3,7 +3,33 @@
 ```
 project-root/
 ├── apps/
-│   ├── web/
+│   ├── web-app-2/
+│   │   ├── pages/
+│   │   │   ├── index.tsx
+│   │   │   ├── about.tsx
+│   │   │   ├── products/
+│   │   │   │   ├── [productId].tsx
+│   │   ├── styles/
+│   │   │   ├── globals.css
+│   │   │   ├── ...
+│   │   ├── components/
+│   │   │   ├── Header.tsx
+│   │   │   ├── Footer.tsx
+│   │   │   ├── ...
+│   │   ├── public/
+│   │   │   ├── images/
+│   │   │   ├── ...
+│   │   ├── utils/
+│   │   │   ├── api.ts
+│   │   │   ├── helpers.ts
+│   │   ├── context/
+│   │   │   ├── AuthContext.tsx
+│   │   │   ├── CartContext.tsx
+│   │   ├── hooks/
+│   │   │   ├── useLocalStorage.ts
+│   │   │   ├── useApi.ts
+│   │   ├── ...
+│   ├── web-app-2/
 │   │   ├── pages/
 │   │   │   ├── index.tsx
 │   │   │   ├── about.tsx
@@ -34,7 +60,13 @@ project-root/
 │   ├── shared-components/
 │   │   ├── Button.tsx
 │   │   ├── Modal.tsx
-│   ├── helper/
+│   ├── shared-helper/
+│   │   ├── src
+│   │   │   ├── index.ts
+│   ├── shared-constants/
+│   │   ├── src
+│   │   │   ├── index.ts
+│   ├── shared-interface/
 │   │   ├── src
 │   │   │   ├── index.ts
 │   ├── api-services/

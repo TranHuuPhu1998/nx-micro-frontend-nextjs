@@ -4,14 +4,14 @@ export const axiosClient = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
-  baseURL: process.env['NX_API_LAYER_URL'],
+  baseURL: process.env['NEXT_PUBLIC_API_LAYER_URL'],
   responseType: 'json',
 });
 
 axiosClient.interceptors.request.use(
   async (config) => {
     if (config.headers) {
-      config.headers['apikey'] = process.env['NX_API_KEY'];
+      config.headers['apikey'] = process.env['NEXT_PUBLIC_API_KEY'];
     }
     return config;
   },
